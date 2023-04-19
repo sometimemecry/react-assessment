@@ -2,6 +2,7 @@ import Header from "./Header";
 import { useState } from "react";
 import User from "./user";
 import Admin from "./admin";
+import './Home.css'
 
 const mockEmployees = [
   {
@@ -60,10 +61,12 @@ const Home = () => {
       <div className="home-section">
         <h1>Generation Thailand</h1>
         <h1>{sector}</h1>
+      <div>
+      <button className="home-button" onClick={handleUserClick}>User Home Sector</button>
+      <button className="home-button" onClick={handleAdminClick}>Admin Home Sector</button>
       </div>
-      <button onClick={handleUserClick}>User Home Sector</button>
-      <button onClick={handleAdminClick}>Admin Home Sector</button>
       {changeSector}
+      </div>
     </div>
   );
 };

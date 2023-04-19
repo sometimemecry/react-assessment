@@ -1,0 +1,15 @@
+.owner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.owner-container h1 {
+    padding-top: 82px;
+}
+
+.owner-container p {
+    padding-top: 32px;
+    width: 50%;
+}

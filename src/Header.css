@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    padding-right: 80px;
+    background: black ;
+    height: 80px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: rgb(255, 119, 0);
+    font-size: 24px;
+}

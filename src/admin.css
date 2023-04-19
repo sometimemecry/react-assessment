@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.admin-section {
+    padding-top: 64px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.input-section input {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 16px;
+    height: 45px;
+    text-align: center;
+}
+
+.save-button {
+    padding: 0px 44px;
+    background: black;
+    color: rgb(255, 119, 0);
+    border-radius: 10px;
+}
+
+.admin-table-container {
+    padding-top: 64px;
+}
+
+table {
+    border-collapse: collapse; 
+    border: 2px solid rgb(255, 119, 0);
+  }
+  
+  th, td {
+    border: 1px solid rgb(255, 119, 0);
+    padding: 8px; 
+    color: white;
+    padding: 16px 32px;
+  }
+
+  .delete-button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+  }
+
+  .delete-button:hover {
+    cursor: pointer;
+  }

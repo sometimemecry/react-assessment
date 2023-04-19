@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './admin.css'
 
 const Admin = ({ addEmployee, employees, mockEmployees, setEmployees }) => {
   const [name, setName] = useState("");
@@ -24,8 +25,8 @@ const Admin = ({ addEmployee, employees, mockEmployees, setEmployees }) => {
     setEmployees([...employees]);
   };
   return (
-    <>
-      <div>
+    <div className="admin-section">
+      <div className="input-section">
         <input
           placeholder="Name"
           value={name}
@@ -41,15 +42,16 @@ const Admin = ({ addEmployee, employees, mockEmployees, setEmployees }) => {
           value={position}
           onChange={(e) => setPosition(e.target.value)}
         ></input>
-        <button onClick={handleSave}>Save</button>
+        <button className="save-button" onClick={handleSave}>Save</button>
       </div>
-      <div>
-        <table>
+      <div className="admin-table-container">
+        <table className="admin-table">
           <thead>
             <tr>
               <th>Name</th>
               <th>Lastname</th>
               <th>Position</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +61,7 @@ const Admin = ({ addEmployee, employees, mockEmployees, setEmployees }) => {
                 <td>{employee.lastname}</td>
                 <td>{employee.position}</td>
                 <td>
-                  <button onClick={() => handleDelete(employee.id)}>
+                  <button className="delete-button" onClick={() => handleDelete(employee.id)}>
                     Delete
                   </button>
                 </td>
@@ -68,7 +70,7 @@ const Admin = ({ addEmployee, employees, mockEmployees, setEmployees }) => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

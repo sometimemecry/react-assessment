@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "./Header";
+import './owner.css'
 
 const Owner = () => {
   return (
     <>
       <Header />
+      <div className="owner-container">
       <h1>Ball - Group I - 47</h1>
       <img src="https://dummyimage.com/250/ffffff/000000" />
       <h3>Short Biography:</h3>
@@ -17,6 +19,7 @@ const Owner = () => {
         position where I can apply my technical expertise and prior experience
         to contribute to the success of the team.
       </p>
+      </div>
     </>
   );
 };
