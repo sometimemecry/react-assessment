@@ -1,51 +1,73 @@
 import React, { useState } from "react";
-import Home from "./Home";
-import Table from "./table";
 
-const Admin = () => {
+const Admin = ({ addEmployee, employees, mockEmployees, setEmployees }) => {
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [lastName, setLastName] = useState("");
   const [position, setPosition] = useState("");
-  const [employees, setEmployees] = useState([]);
 
   const handleSave = () => {
-    const newEmployee = { name, lastname, position };
-    setEmployees([...employees, newEmployee]);
+    const newEmployee = {
+      id: Math.max(...mockEmployees.map((e) => e.id)) + 1,
+      name,
+      lastname: lastName,
+      position,
+    };
+    addEmployee(newEmployee);
     setName("");
-    setLastname("");
+    setLastName("");
     setPosition("");
   };
 
-  const handleDelete = (index) => {
-    const newEmployees = [...employees];
-    newEmployees.splice(index, 1);
-    setEmployees(newEmployees);
+  const handleDelete = (id) => {
+    const index = employees.findIndex((employee) => employee.id === id);
+    employees.splice(index, 1);
+    setEmployees([...employees]);
   };
-
   return (
     <>
-      <Home />
-      <h3>Create Employee Here</h3>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Last Name"
-        value={lastname}
-        onChange={(event) => setLastname(event.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Position"
-        value={position}
-        onChange={(event) => setPosition(event.target.value)}
-      />
-      <button onClick={handleSave}>Save</button>
-      <Table employees={employees} onDelete={handleDelete} />
+      <div>
+        <input
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <input
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        ></input>
+        <input
+          placeholder="Position"
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+        ></input>
+        <button onClick={handleSave}>Save</button>
+      </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Lastname</th>
+              <th>Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            {employees.map((employee) => (
+              <tr key={employee.id}>
+                <td>{employee.name}</td>
+                <td>{employee.lastname}</td>
+                <td>{employee.position}</td>
+                <td>
+                  <button onClick={() => handleDelete(employee.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
